@@ -12,6 +12,7 @@ const EMAILJS_PUBLIC_KEY  = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY  ?? "";
 export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -27,7 +28,9 @@ export default function ContactForm() {
       );
       setStatus("success");
       formRef.current.reset();
-    } catch {
+    } catch (err: any) {
+      console.error("EmailJS error:", err);
+      setErrorMsg(err?.text || err?.message || JSON.stringify(err));
       setStatus("error");
     }
   }
@@ -86,7 +89,7 @@ export default function ContactForm() {
         <Send className="h-4 w-4" />
       </button>
       {status === "error" && (
-        <p className="text-red-400 text-sm">Something went wrong. Please try again or email me directly.</p>
+        <p className="text-red-400 text-sm">Error: {errorMsg || "Something went wrong. Please try again."}</p>
       )}
     </form>
   );
