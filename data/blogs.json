@@ -1,0 +1,58 @@
+[
+  {
+    "slug": "tinyml-for-the-edge",
+    "title": "Architecting TinyML for the Edge",
+    "date": "Oct 12, 2023",
+    "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop",
+    "excerpt": "Deploying machine learning models to edge devices requires a fundamentally different approach to engineering — kilobytes of RAM, no internet, and aggressive power budgets.",
+    "content": [
+      "Deploying machine learning models to edge devices requires a fundamentally different approach to engineering. You're working within strict constraints — kilobytes of RAM, limited compute, no internet connectivity, and aggressive power budgets.",
+      "In my TinyML posture detection system, I optimized a model using post-training quantization (Int8), reducing its size from 120KB to 15KB while maintaining accuracy. This enabled real-time inference on an Arduino Nano 33 BLE Sense, consuming less than 1mW.",
+      "The system is built as a complete pipeline: IMU data collection → preprocessing & windowing → feature extraction → model training → TensorFlow Lite conversion → quantization → embedded deployment.",
+      "The result is a fully on-device, privacy-preserving ML system — no cloud dependency, no latency, and consistent real-time performance."
+    ]
+  },
+  {
+    "slug": "scaling-nextjs-prisma-postgresql",
+    "title": "Scaling Next.js with Prisma & PostgreSQL",
+    "date": "Jan 4, 2024",
+    "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop",
+    "excerpt": "Modern applications fail not because of features, but because of poor system design under real-world conditions.",
+    "content": [
+      "Modern applications fail not because of features, but because of poor system design under real-world conditions.",
+      "Using Next.js, Prisma, and PostgreSQL, I build systems that prioritize type safety, scalability, and reliability. Prisma generates TypeScript types directly from the schema, ensuring consistency across the entire stack.",
+      "A key production challenge is database connection exhaustion in serverless environments. Frequent cold starts can quickly exceed connection limits. The solution is introducing a pooling layer such as PgBouncer or Prisma Accelerate, stabilizing database access.",
+      "My production workflow includes: schema versioning with prisma migrate deploy, CI/CD-integrated migrations, and Server Actions for end-to-end type safety. This results in a backend architecture that is predictable, maintainable, and production-ready."
+    ]
+  },
+  {
+    "slug": "ml-pipelines-that-work",
+    "title": "From Sensor Data to Intelligence: Building ML Pipelines That Actually Work",
+    "date": "Mar 22, 2024",
+    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop",
+    "excerpt": "Most machine learning projects fail not because of the model, but because of the pipeline.",
+    "content": [
+      "Most machine learning projects fail not because of the model, but because of the pipeline.",
+      "Through building real-world systems, I've learned that data consistency and preprocessing matter more than model complexity.",
+      "My ML pipeline design focuses on: structured data collection (controlled labels, consistent sampling), sliding window segmentation for temporal patterns, robust feature engineering (statistical + motion-based features), strict train/validation/test separation to avoid leakage, and lightweight models optimized for deployment constraints.",
+      "One critical lesson: if your model hits 100% accuracy, it's probably broken. By treating the pipeline as a system — not just a script — I ensure that models perform reliably outside the notebook, in real-world environments."
+    ]
+  },
+  {
+    "slug": "aero-ecommerce-architecture",
+    "title": "Building a Modern E-Commerce System: The Architecture Behind Aero",
+    "date": "Feb 5, 2024",
+    "thumbnail": "/aero-architecture.png",
+    "architectureDiagram": "/aero-architecture.png",
+    "excerpt": "Most e-commerce projects look simple on the surface — products, cart, checkout. But once you move beyond demos, the real challenge is designing a system that is fast, scalable, and reliable under real usage.",
+    "content": [
+      "Most e-commerce projects look simple on the surface — products, cart, checkout. But once you move beyond demos, the real challenge is designing a system that is fast, scalable, and reliable under real usage. Aero was built with that mindset: not just as a storefront, but as a production-ready full-stack system.",
+      "Performance is the foundation of any e-commerce experience. Slow pages directly translate to lost conversions. Using Next.js, Aero leverages server-side rendering for fast initial loads, optimized routing and code-splitting, and efficient data fetching strategies. The goal is simple: reduce time-to-interaction as much as possible, especially on product and landing pages.",
+      "Data consistency becomes critical as soon as users start interacting with the system. With Prisma and PostgreSQL, the backend is designed to be fully type-safe across the stack, predictable in schema evolution, and easy to maintain as complexity grows. Instead of writing raw queries, Prisma acts as a structured layer that ensures data integrity and developer confidence.",
+      "One of the less obvious challenges is database connection management. In serverless environments, multiple instances can spin up simultaneously, quickly exhausting database limits. To handle this, Aero integrates a connection pooling strategy, ensuring stable performance under load. This is the kind of issue that doesn't show up in tutorials — but breaks systems in production.",
+      "E-commerce isn't just about data — it's about state: cart updates, product selections, user sessions. Aero is designed to keep state transitions smooth and predictable, ensuring that interactions feel instant and reliable. Small UX decisions — like optimistic updates or persistent cart behavior — make a significant difference in perceived performance.",
+      "As features grow (auth, payments, dashboards), structure becomes more important than speed of development. Aero follows a modular approach: clear separation between UI, logic, and data layers, reusable components for consistency, and a scalable folder structure aligned with features. This allows the system to evolve without becoming fragile.",
+      "The biggest shift while building Aero wasn't adding features — it was thinking in terms of systems and trade-offs. Every decision involved balancing performance vs flexibility, simplicity vs scalability, and speed of development vs long-term maintainability. That's what turns a project into something closer to a real-world product."
+    ]
+  }
+]

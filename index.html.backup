@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdullah Al Sayeed | Futuristic Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* Color Palette */
+            --bg-color: #0a0a0a;
+            --surface-color: #121212;
+            --surface-color-light: #1e1e1e;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+
+            --neon-cyan: #00f5ff;
+            --neon-green: #39ff14;
+            --neon-purple: #bf00ff;
+
+            /* Typography */
+            --font-heading: 'Orbitron', sans-serif;
+            --font-body: 'Rajdhani', sans-serif;
+
+            /* Layout */
+            --sidebar-width: 320px;
+            --transition-speed: 0.3s;
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-size: 18px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-heading);
+            letter-spacing: 1px;
+        }
+
+        a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            transition: all var(--transition-speed);
+        }
+
+        a:hover {
+            color: var(--text-main);
+            text-shadow: 0 0 8px var(--neon-cyan);
+        }
+
+        /* Typography & Glow Utilities */
+        .text-cyan {
+            color: var(--neon-cyan);
+        }
+
+        .text-green {
+            color: var(--neon-green);
+        }
+
+        .text-purple {
+            color: var(--neon-purple);
+        }
+
+        .glow-cyan {
+            text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+        }
+
+        .glow-green {
+            text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
+        }
+
+        .glow-purple {
+            text-shadow: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple);
+        }
+
+        /* Ambient Effects */
+
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: 50px 50px;
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            z-index: -1;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(50px);
+            }
+        }
+
+        /* Layout */
+        .layout-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            border-right: 1px solid rgba(0, 245, 255, 0.2);
+            position: fixed;
+            height: 100vh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 100;
+            overflow-y: auto;
+        }
+
+        .profile-img-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-img-container::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--neon-cyan), var(--neon-purple));
+            z-index: -1;
+            animation: rotateSpin 4s linear infinite;
+        }
+
+        @keyframes rotateSpin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg-color);
+        }
+
+        .sidebar h2 {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .sidebar .username {
+            font-family: var(--font-body);
+            color: var(--neon-cyan);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .bio {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        .contact-info {
+            width: 100%;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-info li {
+            list-style: none;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info i {
+            color: var(--neon-cyan);
+            width: 20px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: rgba(0, 245, 255, 0.2);
+            color: #fff;
+            box-shadow: 0 0 15px var(--neon-cyan);
+            transform: translateY(-3px);
+        }
+
+        /* Main Content */
+        .content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 0 4rem;
+            position: relative;
+        }
+
+        /* Top Navbar */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: var(--sidebar-width);
+            right: 0;
+            height: 70px;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0 4rem;
+            z-index: 90;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            color: var(--text-muted);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-cyan);
+            transition: width 0.3s ease;
+            box-shadow: 0 0 8px var(--neon-cyan);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-main);
+            text-shadow: 0 0 8px var(--neon-cyan);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* Sections */
+        .section {
+            min-height: 100vh;
+            padding: 100px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--neon-purple);
+            box-shadow: 0 0 10px var(--neon-purple);
+        }
+
+        /* Hero Section */
+        .hero {
+            align-items: flex-start;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .typing-container {
+            font-size: 2rem;
+            font-family: var(--font-heading);
+            color: var(--neon-green);
+            margin-bottom: 2rem;
+            text-shadow: 0 0 8px rgba(57, 255, 20, 0.5);
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 2rem;
+            background-color: var(--neon-green);
+            margin-left: 5px;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .hero p {
+            max-width: 600px;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .glowing-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.5), transparent);
+            margin: 2rem 0;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--bg-color);
+            background: var(--neon-cyan);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 245, 255, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 0 25px rgba(0, 245, 255, 0.7);
+            color: var(--bg-color);
+            text-shadow: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--neon-cyan);
+            border: 2px solid var(--neon-cyan);
+            box-shadow: 0 0 10px rgba(0, 245, 255, 0.2) inset, 0 0 10px rgba(0, 245, 255, 0.2);
+        }
+
+        .btn-outline:hover {
+            background: rgba(0, 245, 255, 0.1);
+            color: var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.4) inset, 0 0 20px rgba(0, 245, 255, 0.4);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--surface-color);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top right, rgba(0, 245, 255, 0.1), transparent 50%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 245, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 245, 255, 0.1);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            color: var(--neon-cyan);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            perspective: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .skill-bubble {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: rgba(18, 18, 18, 0.6);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.1) inset;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            animation: floatBubble 10s ease-in-out infinite alternate;
+        }
+
+        .skill-bubble:hover {
+            transform: scale(1.2) translateZ(50px) !important;
+            border-color: var(--neon-green);
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.4) inset, 0 0 20px rgba(57, 255, 20, 0.4);
+            z-index: 10;
+        }
+
+        .skill-bubble i {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .skill-bubble span {
+            font-size: 0.7rem;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--neon-green);
+        }
+
+        /* Skill positioning - generated via JS for random/orbit effect but base styles here */
+        .s1 {
+            top: 10%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .s2 {
+            top: 30%;
+            left: 80%;
+            animation-delay: -2s;
+        }
+
+        .s3 {
+            top: 60%;
+            left: 15%;
+            animation-delay: -4s;
+        }
+
+        .s4 {
+            top: 75%;
+            left: 75%;
+            animation-delay: -1s;
+        }
+
+        .s5 {
+            top: 40%;
+            left: 45%;
+            animation-delay: -3s;
+            transform: scale(1.3);
+        }
+
+        /* center node */
+        .s6 {
+            top: 15%;
+            left: 60%;
+            animation-delay: -5s;
+        }
+
+        .s7 {
+            top: 80%;
+            left: 40%;
+            animation-delay: -2.5s;
+        }
+
+        .s8 {
+            top: 50%;
+            left: 10%;
+            animation-delay: -1.5s;
+        }
+
+        .s9 {
+            top: 20%;
+            left: 40%;
+            animation-delay: -3.5s;
+        }
+
+        .s10 {
+            top: 65%;
+            left: 60%;
+            animation-delay: -0.5s;
+        }
+
+        .s11 {
+            top: 45%;
+            left: 85%;
+            animation-delay: -4.5s;
+        }
+
+        @keyframes floatBubble {
+            0% {
+                transform: translateY(0px) rotateX(0) rotateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px) rotateX(10deg) rotateY(10deg);
+            }
+
+            100% {
+                transform: translateY(20px) rotateX(-10deg) rotateY(-10deg);
+            }
+        }
+
+        /* Timeline / Experience */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--neon-purple), transparent);
+            box-shadow: 0 0 10px var(--neon-purple);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            position: relative;
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+        }
+
+        .timeline-content {
+            width: 90%;
+            background: var(--surface-color);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            border-color: rgba(191, 0, 255, 0.3);
+            box-shadow: 0 0 20px rgba(191, 0, 255, 0.1);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 20px;
+            right: -45px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--bg-color);
+            border: 3px solid var(--neon-purple);
+            box-shadow: 0 0 10px var(--neon-purple);
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            right: auto;
+            left: -45px;
+        }
+
+        .timeline-date {
+            color: var(--neon-purple);
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            background: var(--surface-color);
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-wrapper::before {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: var(--neon-cyan);
+            filter: blur(100px);
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .contact-info-blocks,
+        .contact-form {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info-block {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info-block h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .contact-info-block p {
+            color: var(--text-muted);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 10px rgba(0, 245, 255, 0.2) inset;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .status-message {
+            margin-top: 1rem;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: var(--font-heading);
+            display: none;
+        }
+
+        .status-message.success {
+            display: block;
+            background: rgba(57, 255, 20, 0.1);
+            color: var(--neon-green);
+            border: 1px solid var(--neon-green);
+            text-shadow: 0 0 5px var(--neon-green);
+        }
+
+        .status-message.error {
+            display: block;
+            background: rgba(255, 50, 50, 0.1);
+            color: #ff3232;
+            border: 1px solid #ff3232;
+            text-shadow: 0 0 5px #ff3232;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 5rem;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-social a {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .footer-social a:hover {
+            color: var(--neon-purple);
+            text-shadow: 0 0 15px var(--neon-purple);
+            transform: scale(1.2);
+        }
+
+        /* Modals */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--surface-color);
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 245, 255, 0.1);
+            padding: 3rem;
+            position: relative;
+            transform: translateY(50px) scale(0.95);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan);
+            transform: rotate(90deg);
+        }
+
+        .modal-header h2 {
+            font-size: 2rem;
+            color: var(--neon-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .modal-body p {
+            margin-bottom: 1.5rem;
+            color: #d0d0d0;
+            font-size: 1.1rem;
+        }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            .content {
+                padding: 0 2rem;
+            }
+
+            .timeline::before {
+                left: 40px;
+            }
+
+            .timeline-item {
+                justify-content: flex-end;
+                padding-right: 0;
+                padding-left: 80px;
+            }
+
+            .timeline-item:nth-child(even) {
+                justify-content: flex-end;
+                padding-left: 80px;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-dot {
+                left: -45px !important;
+                right: auto !important;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .layout-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 2rem 1rem;
+                border-right: none;
+                border-bottom: 1px solid rgba(0, 245, 255, 0.2);
+                z-index: 95;
+            }
+
+            .content {
+                margin-left: 0;
+                padding: 0 1.5rem 80px 1.5rem;
+            }
+
+            .top-nav {
+                top: auto;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 0 1.5rem;
+                justify-content: center;
+                height: 60px;
+                border-bottom: none;
+                border-top: 1px solid rgba(0, 245, 255, 0.2);
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.8rem;
+            }
+
+            .hero {
+                padding-top: 150px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .typing-container {
+                font-size: 1.2rem;
+            }
+
+            .skills-container {
+                height: 400px;
+            }
+
+            .skill-bubble {
+                width: 60px;
+                height: 60px;
+            }
+
+            .skill-bubble i {
+                font-size: 1.5rem;
+            }
+
+            .modal-content {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Ambient Effects -->
+    <!-- Cursor glow removed -->
+    <div class="bg-grid"></div>
+
+    <div class="layout-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="profile-img-container">
+                <img src="https://avatars.githubusercontent.com/abdsayeed" alt="Abdullah Al Sayeed" class="profile-img">
+            </div>
+
+            <h2>Abdullah Al Sayeed</h2>
+            <div class="username glow-cyan">@abdsayeed</div>
+
+            <p class="bio">
+                "A passionate student with a strong foundation in full-stack development, now expanding into the world
+                of cloud computing to build scalable, future-ready solutions."
+            </p>
+
+            <ul class="contact-info">
+                <li><i class="fas fa-map-marker-alt"></i> London, United Kingdom</li>
+                <li><i class="fas fa-envelope"></i> abdsayeedofficial@gmail.com</li>
+            </ul>
+
+            <div class="social-links">
+                <a href="https://github.com/abdsayeed" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/abdullah-al-sayeed-50522a22b/" target="_blank" title="LinkedIn"><i
+                        class="fab fa-linkedin-in"></i></a>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="content">
+
+            <!-- Floating Navigation -->
+            <nav class="top-nav">
+                <ul class="nav-links">
+                    <li><a href="#about" class="active">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Hero Section -->
+            <section id="about" class="section hero reveal">
+                <div class="glow-cyan">&lt; Hello World /&gt;</div>
+                <h1>I'm Abdullah <br><span class="text-cyan">Al Sayeed</span></h1>
+
+                <div class="typing-container">
+                    <span id="typing-text"></span><span class="typing-cursor">|</span>
+                </div>
+
+                <p>
+                    I'm Abdullah Al Sayeed, a London-based full-stack developer with a passion for building web
+                    applications that solve real problems. I work confidently across the entire stack — designing
+                    RESTful APIs, building responsive frontends, and deploying cloud-hosted systems that are secure,
+                    scalable, and production-ready.<br><br>
+                    My projects reflect the kind of engineer I am. I've built an AI-powered legal platform that helps UK
+                    tenants understand their housing rights using a local LLM and ML document analysis. I've engineered
+                    role-based rental management APIs secured with JWT authentication. I've created real-time business
+                    review platforms and cloud-deployed Q&A systems for students and teachers. Every project is built
+                    with the same principles: clean architecture, security by design, and code that holds up under
+                    real-world pressure.<br><br>
+                    My core stack is TypeScript, Python, React, Flask, and MongoDB, with hands-on experience in Azure,
+                    Docker, and Angular. I write code that doesn't just work — it handles edge cases, fails gracefully,
+                    and is maintainable long after it's shipped.<br><br>
+                    Right now I'm deepening my expertise in cloud infrastructure, DevOps, and AI-integrated systems,
+                    with a goal of building software that's not just functional, but future-ready.<br><br>
+                    Based in London. Passionate about technology. Always building.
+                </p>
+
+                <div class="glowing-divider"></div>
+
+                <div style="display: flex; gap: 1rem;">
+                    <a href="#projects" class="btn">View Work</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="section reveal">
+                <h2 class="section-title">Terminal<span class="text-purple">_Projects</span></h2>
+
+                <div class="projects-grid">
+
+                    <!-- Proj 1 -->
+                    <div class="project-card">
+                        <h3>Aero_Ecommerce</h3>
+                        <p>A full-featured modern e-commerce platform with secure payments and scalable routing.</p>
+                        <div class="tech-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Full-Stack</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="openModal('modal-aero')">View Details</button>
+                    </div>
+
+                    <!-- Proj 2 -->
+                    <div class="project-card">
+                        <h3>Proj_Rentease</h3>
+                        <p>Flask RESTful API for property rental management with JWT auth and role-based access.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Flask</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="openModal('modal-rentease')">View Details</button>
+                    </div>
+
+                    <!-- Proj 3 -->
+                    <div class="project-card">
+                        <h3>Home-Rights</h3>
+                        <p>AI-powered legal platform helping UK tenants understand their housing rights.</p>
+                        <div class="tech-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">Azure</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="openModal('modal-homerights')">View Details</button>
+                    </div>
+
+                    <!-- Proj 4 -->
+                    <div class="project-card">
+                        <h3>PeerView</h3>
+                        <p>Modern Q&A platform for students and teachers powered by Azure Cloud.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Azure</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="openModal('modal-peerview')">View Details</button>
+                    </div>
+
+                    <!-- Proj 5 -->
+                    <div class="project-card">
+                        <h3>Iris-Flower_Classification</h3>
+                        <p>Machine learning classification model exploring datasets using Python data science libraries.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Data Science</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="openModal('modal-iris')">View Details</button>
+                    </div>
+
+                    <!-- Proj 6 -->
+                    <div class="project-card">
+                        <h3>AV web</h3>
+                        <p>Aries Ventures Platform Migration: modular Angular 17 architecture with complex onboarding
+                            flows.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Angular 17</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">Frontend Architecture</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="openModal('modal-avweb')">View Details</button>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="section reveal">
+                <h2 class="section-title">Core<span class="text-green">_Stack</span></h2>
+
+                <div class="skills-container" id="parallax-skills">
+                    <div class="skill-bubble s1"><i class="fab fa-js"></i><span>JavaScript</span></div>
+                    <div class="skill-bubble s2"><i class="fab fa-python"></i><span>Python</span></div>
+                    <div class="skill-bubble s3"><i class="fab fa-react"></i><span>React</span></div>
+                    <div class="skill-bubble s4"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+                    <div class="skill-bubble s5"><i class="fab fa-microsoft"></i><span>Azure</span></div>
+                    <div class="skill-bubble s6"><i class="fab fa-docker"></i><span>Docker</span></div>
+                    <div class="skill-bubble s7"><i class="fas fa-database"></i><span>MongoDB</span></div>
+                    <div class="skill-bubble s8"><i class="fab fa-git-alt"></i><span>Git</span></div>
+                    <div class="skill-bubble s9"><i class="fas fa-file-code"></i><span>TS</span></div>
+                    <div class="skill-bubble s10"><i class="fas fa-server"></i><span>Flask</span></div>
+                    <div class="skill-bubble s11"><i class="fab fa-html5"></i><span>HTML/CSS</span></div>
+                </div>
+            </section>
+
+            <!-- Experience/Education timeline -->
+            <section id="experience" class="section reveal">
+                <h2 class="section-title">Experience<span class="text-cyan">_Log</span></h2>
+
+                <div class="timeline">
+                    <!-- Example items matching the generic requirement for left/right timeline -->
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Present</div>
+                            <h3>Cloud Computing Expansion</h3>
+                            <p>Currently expanding core skill set into cloud architecture, focusing on Microsoft Azure
+                                to build scalable, resilient web applications and APIs.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Recent</div>
+                            <h3>Full-Stack Development Focus</h3>
+                            <p>Mastered modern JavaScript frameworks (React) alongside robust backends in Python (Flask)
+                                and Node.js. Integrated NoSQL databases (MongoDB) for complex data management.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Foundation</div>
+                            <h3>Programming Core</h3>
+                            <p>Established a deep understanding of core programming concepts, data structures, and
+                                algorithms. Began journey into structural coding and web technologies.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="section reveal">
+                <h2 class="section-title">Init<span class="text-purple">_Contact</span></h2>
+
+                <div class="contact-wrapper">
+                    <div class="contact-info-blocks">
+                        <div class="contact-info-block">
+                            <h4><i class="fas fa-envelope text-cyan"></i> Comm Link</h4>
+                            <p>abdsayeedofficial@gmail.com</p>
+                        </div>
+                        <div class="contact-info-block">
+                            <h4><i class="fas fa-globe text-cyan"></i> Base Location</h4>
+                            <p>London, United Kingdom</p>
+                        </div>
+                        <p style="color: var(--text-muted); margin-top: 2rem;">
+                            Always open for exciting opportunities, collaborations, or just a chat about tech and the
+                            future. Send a transmission.
+                        </p>
+                    </div>
+
+                    <div class="contact-form">
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="user_name" placeholder="Name / Alias"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="user_email" placeholder="Email Address"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="message"
+                                    placeholder="Enter transmission message..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn" style="width: 100%;">Initialize Transfer <i
+                                    class="fas fa-paper-plane" style="margin-left:8px;"></i></button>
+
+                            <div id="status-message" class="status-message"></div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer>
+                <p>&copy; <span id="year"></span> Abdullah Al Sayeed. All systems operational.</p>
+                <div class="footer-social">
+                    <a href="https://github.com/abdsayeed" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/abdullah-al-sayeed-50522a22b/" target="_blank"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/mr.t9vir?igsh=bm00ZzJlMDkxaTE1&utm_source=qr" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- === MODALS === -->
+
+    <!-- Aero_Ecommerce Modal -->
+    <div class="modal-overlay" id="modal-aero">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-aero')"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2>Aero_Ecommerce</h2>
+            </div>
+            <div class="modal-body">
+                <div class="tech-tags">
+                    <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Full-Stack</span>
+                </div>
+                <p>A complete multi-page e-commerce storefront mimicking modern B2C platforms. Designed to handle user
+                    authentication, product catalogs, shopping carts, and dynamic checkout flows.</p>
+                <p>Built with a robust full-stack architecture focusing on reliable state management across multiple
+                    pages and secure backend data handling.</p>
+                <a href="https://github.com/abdsayeed/Aero_Ecommerce" target="_blank" class="btn btn-outline"
+                    style="margin-top: 1rem;"><i class="fab fa-github"></i> View Repository</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Proj_Rentease Modal -->
+    <div class="modal-overlay" id="modal-rentease">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-rentease')"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2>Proj_Rentease</h2>
+            </div>
+            <div class="modal-body">
+                <div class="tech-tags">
+                    <span class="tag">Flask</span><span class="tag">TypeScript</span><span
+                        class="tag">MongoDB</span><span class="tag">JWT</span>
+                </div>
+                <p>A robust property rental management platform built around a secure Flask RESTful API. The application
+                    leverages TypeScript to ensure type safety on the client and server communication layers.</p>
+                <p>Key features include JWT-based authentication protocols, role-based access control (Admin vs User),
+                    and seamless interaction with a NoSQL MongoDB backend to manage property listings and tenant data.
+                </p>
+                <a href="https://github.com/abdsayeed/Proj_Rentease" target="_blank" class="btn btn-outline"
+                    style="margin-top: 1rem;"><i class="fab fa-github"></i> View Repository</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Home-Rights Modal -->
+    <div class="modal-overlay" id="modal-homerights">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-homerights')"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2>Home-Rights</h2>
+            </div>
+            <div class="modal-body">
+                <div class="tech-tags">
+                    <span class="tag">React</span><span class="tag">Python</span><span class="tag">MongoDB</span><span
+                        class="tag">Azure</span>
+                </div>
+                <p>An AI-powered legal platform aimed at simplifying UK housing law for tenants. Uses local LLM and ML
+                    document analysis to make complex legal terms digestable and actionable.</p>
+                <p>Developed with a React frontend and Python backend, with data management handled by MongoDB. The
+                    entire architecture is deployed and scaled utilizing Microsoft Azure cloud services.</p>
+                <a href="https://github.com/abdsayeed/Home-Rights" target="_blank" class="btn btn-outline"
+                    style="margin-top: 1rem;"><i class="fab fa-github"></i> View Repository</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- PeerView Modal -->
+    <div class="modal-overlay" id="modal-peerview">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-peerview')"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2>PeerView</h2>
+            </div>
+            <div class="modal-body">
+                <div class="tech-tags">
+                    <span class="tag">Python</span><span class="tag">Azure</span>
+                </div>
+                <p>A modern, interactive Q&A platform tailored for academic environments, connecting students and
+                    teachers for real-time problem solving and knowledge sharing.</p>
+                <p>The backend logic is constructed with Python, heavily integrating Azure Cloud features for robust
+                    hosting, database connection pooling, and secure user management.</p>
+                <a href="https://github.com/abdsayeed/peerview" target="_blank" class="btn btn-outline"
+                    style="margin-top: 1rem;"><i class="fab fa-github"></i> View Repository</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Iris-Flower_Classification Modal -->
+    <div class="modal-overlay" id="modal-iris">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-iris')"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2>Iris-Flower_Classification</h2>
+            </div>
+            <div class="modal-body">
+                <div class="tech-tags">
+                    <span class="tag">Machine Learning</span><span class="tag">Python</span><span class="tag">Data
+                        Science</span>
+                </div>
+                <p>A machine learning project exploring the classic Iris flower dataset. The project demonstrates core
+                    data science workflows including data preprocessing, feature visualization, and model selection.</p>
+                <p>Utilizes popular Python libraries to build and evaluate predictive models, showcasing a foundational
+                    understanding of AI capabilities in a practical scenario.</p>
+                <a href="https://github.com/abdsayeed/Iris_Flower_Classification" target="_blank"
+                    class="btn btn-outline" style="margin-top: 1rem;"><i class="fab fa-github"></i> View Repository</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- AV web Modal -->
+    <div class="modal-overlay" id="modal-avweb">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-avweb')"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2>AV web</h2>
+            </div>
+            <div class="modal-body">
+                <div class="tech-tags">
+                    <span class="tag">Angular 17</span><span class="tag">TypeScript</span><span class="tag">Frontend
+                        Architecture</span>
+                </div>
+                <p>A sophisticated platform migration integrating a modern, modular Angular 17 architecture. Translating
+                    the Aries Ventures brand into a highly functional software suite.</p>
+                <p>Features complex multi-step onboarding forms, standalone components, dynamic state management, and
+                    strict adherence to modern design systems.</p>
+                <a href="https://github.com/abdsayeed/AV_web" target="_blank" class="btn btn-outline"
+                    style="margin-top: 1rem;"><i class="fab fa-github"></i> View Repository</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ================= SCRIPTS ================= -->
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            // Replace with your Public Key from: Account -> API Keys
+            emailjs.init("6DN-7_kRDZl72spbC");
+        })();
+    </script>
+
+    <script>
+        // 1. Current Year for Footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // 2. Custom Cursor Glow Follower removed
+
+        // 3. Typing Effect
+        const titles = ["Full-Stack Developer.", "Cloud Engineer.", "Problem Solver.", "Tech Enthusiast."];
+        const typingText = document.getElementById("typing-text");
+        let titleIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+
+        function type() {
+            const currentTitle = titles[titleIdx];
+
+            if (isDeleting) {
+                typingText.textContent = currentTitle.substring(0, charIdx - 1);
+                charIdx--;
+                typingSpeed = 50; // Faster when deleting
+            } else {
+                typingText.textContent = currentTitle.substring(0, charIdx + 1);
+                charIdx++;
+                typingSpeed = 100;
+            }
+
+            if (!isDeleting && charIdx === currentTitle.length) {
+                // Pause at end of word
+                isDeleting = true;
+                typingSpeed = 1500;
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                titleIdx = (titleIdx + 1) % titles.length;
+                typingSpeed = 500; // Pause before typing new word
+            }
+
+            setTimeout(type, typingSpeed);
+        }
+
+        // Start typing effect
+        setTimeout(type, 1000);
+
+        // 4. Scroll Reveal with Intersection Observer
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Optional: stop observing once revealed
+                    // observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15, // Trigger when 15% of element is visible
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // 5. Navbar Scroll Spy
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const scrollY = window.pageYOffset;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                // Adjustment for triggering section change
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // 6. Modals Logic
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) {
+                modal.classList.add('active');
+                // Prevent background scrolling
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modal when clicking outside content
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function (e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") {
+                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+        });
+
+        // 7. Parallax Effect for Skill Bubbles
+        const skillsContainer = document.getElementById('parallax-skills');
+        const bubbles = document.querySelectorAll('.skill-bubble');
+
+        skillsContainer.addEventListener('mousemove', (e) => {
+            const rect = skillsContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left; // x position within the element.
+            const y = e.clientY - rect.top;  // y position within the element.
+
+            // Calculate center
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const percentX = (x - centerX) / centerX;
+            const percentY = (y - centerY) / centerY;
+
+            bubbles.forEach((bubble, index) => {
+                // Different movement factors for depth
+                const depth = (index % 3) + 1; // 1, 2, or 3
+                const moveX = percentX * 20 * depth;
+                const moveY = percentY * 20 * depth;
+
+                bubble.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        });
+
+        skillsContainer.addEventListener('mouseleave', () => {
+            bubbles.forEach(bubble => {
+                bubble.style.transform = `translate(0px, 0px) rotateX(0deg) rotateY(0deg)`;
+            });
+        });
+
+        // 8. EmailJS Form Submission
+        const contactForm = document.getElementById('contact-form');
+        const statusMessage = document.getElementById('status-message');
+
+        contactForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = 'Transmitting... <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+
+            // <!-- Replace these with your actual IDs -->
+            const serviceID = 'service_mniso2s';
+            const templateID = 'template_8qn8qx8';
+
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(() => {
+                    statusMessage.textContent = "Transmission successful. I'll get back to you soon.";
+                    statusMessage.className = "status-message success";
+                    contactForm.reset();
+                }, (err) => {
+                    statusMessage.textContent = `Transmission failed: ${err.text || 'System error'}. Please try again later.`;
+                    statusMessage.className = "status-message error";
+                    console.error("EmailJS Error:", err);
+                })
+                .finally(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
+
+        });
+    </script>
+</body>
+
+</html>

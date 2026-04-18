@@ -1,0 +1,74 @@
+[
+  {
+    "name": "TypeScript",
+    "slug": "typescript",
+    "category": "Language",
+    "icon": "Code2",
+    "description": "My default for any serious project. TypeScript's static typing catches bugs before they ship and makes large codebases maintainable.",
+    "link": "https://www.typescriptlang.org"
+  },
+  {
+    "name": "React",
+    "slug": "react",
+    "category": "Frontend",
+    "icon": "Layers",
+    "description": "The UI library I reach for on every frontend project. Component-driven, composable, and pairs perfectly with Next.js for production apps.",
+    "link": "https://react.dev"
+  },
+  {
+    "name": "Python",
+    "slug": "python",
+    "category": "Backend & ML",
+    "icon": "Terminal",
+    "description": "My go-to for backend services, data pipelines, and machine learning. From Flask APIs to TensorFlow models, Python powers the intelligent layer.",
+    "link": "https://www.python.org"
+  },
+  {
+    "name": "Node.js",
+    "slug": "nodejs",
+    "category": "Backend",
+    "icon": "Server",
+    "description": "Fast, event-driven JavaScript runtime I use for building scalable REST APIs and real-time backend services.",
+    "link": "https://nodejs.org"
+  },
+  {
+    "name": "MongoDB",
+    "slug": "mongodb",
+    "category": "Database",
+    "icon": "Database",
+    "description": "Flexible NoSQL database I rely on for complex data models, document storage, and rapid iteration on schema design.",
+    "link": "https://www.mongodb.com"
+  },
+  {
+    "name": "Azure",
+    "slug": "azure",
+    "category": "Cloud",
+    "icon": "Cloud",
+    "description": "Microsoft Azure is my cloud platform of choice for deploying scalable, resilient web applications, APIs, and AI-integrated systems.",
+    "link": "https://azure.microsoft.com"
+  },
+  {
+    "name": "Docker",
+    "slug": "docker",
+    "category": "DevOps",
+    "icon": "Box",
+    "description": "Containerisation tool I use to ensure consistent environments from development to production. Every service ships in a container.",
+    "link": "https://www.docker.com"
+  },
+  {
+    "name": "Flask",
+    "slug": "flask",
+    "category": "Backend",
+    "icon": "Zap",
+    "description": "Lightweight Python web framework I use for building RESTful APIs with JWT auth, role-based access, and clean route architecture.",
+    "link": "https://flask.palletsprojects.com"
+  },
+  {
+    "name": "Next.js",
+    "slug": "nextjs",
+    "category": "Framework",
+    "icon": "Globe",
+    "description": "The React framework for production. Hybrid rendering, file-based routing, and seamless Vercel deployment make it my top choice for web apps.",
+    "link": "https://nextjs.org"
+  }
+]

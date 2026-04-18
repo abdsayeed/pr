@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "cloud-computing-expansion",
+    "company": "Cloud Computing Expansion",
+    "role": "Self-Directed Learning",
+    "period": "2024 – Present",
+    "description": "Currently expanding core skill set into cloud architecture, focusing on Microsoft Azure to build scalable, resilient web applications and APIs. Pursuing hands-on projects with Docker, CI/CD pipelines, and cloud-native deployments.",
+    "tags": ["Azure", "Docker", "DevOps", "CI/CD"]
+  },
+  {
+    "slug": "full-stack-development",
+    "company": "Full-Stack Development Focus",
+    "role": "Freelance & Project Work",
+    "period": "2022 – 2024",
+    "description": "Mastered modern JavaScript frameworks (React, Angular) alongside robust backends in Python (Flask) and Node.js. Integrated NoSQL databases (MongoDB) for complex data management. Delivered multiple production-grade projects including AI-powered platforms and e-commerce systems.",
+    "tags": ["React", "Angular", "Flask", "Node.js", "MongoDB"]
+  },
+  {
+    "slug": "programming-foundation",
+    "company": "Programming Foundation",
+    "role": "Student & Builder",
+    "period": "2020 – 2022",
+    "description": "Established a deep understanding of core programming concepts, data structures, and algorithms. Began journey into structural coding and web technologies. Built first full-stack projects and developed a strong foundation in TypeScript and Python.",
+    "tags": ["TypeScript", "Python", "Data Structures", "Algorithms"]
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "client": "J. Anderson",
+    "role": "CTO, Tech Startup",
+    "review": "Abdullah completely modernized our platform architecture. His relentless focus on performance resulted in a 40% faster onboarding flow. Exceptional engineer who delivers on time."
+  },
+  {
+    "client": "S. Jenkins",
+    "role": "Founder, E-commerce Brand",
+    "review": "Working with Abdullah was a game changer. He brought a perfect balance of creativity and technical skill, taking our vision and building a product that truly resonates with our audience."
+  },
+  {
+    "client": "M. Roberts",
+    "role": "Lead Engineer, SaaS Platform",
+    "review": "An exceptional full-stack developer. His ability to navigate React, Python, and MongoDB seamlessly while keeping the cloud infrastructure stable is phenomenal."
+  },
+  {
+    "client": "P. Sharma",
+    "role": "Product Manager, EdTech",
+    "review": "Abdullah built our entire cloud-hosted platform from scratch. Clean architecture, secure by design, and it handled real-world load without a single issue."
+  }
+]

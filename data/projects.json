@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Aero E-commerce",
+    "slug": "aero-ecommerce",
+    "description": "A full-featured modern e-commerce platform with secure payments, scalable routing, and a clean product architecture built with React and Node.js.",
+    "tags": ["React", "Node.js", "Full-Stack"],
+    "link": "https://github.com/abdsayeed/Aero_Ecommerce",
+    "github": "https://github.com/abdsayeed/Aero_Ecommerce"
+  },
+  {
+    "title": "Home-Rights",
+    "slug": "home-rights",
+    "description": "AI-powered legal platform helping UK tenants understand their housing rights using a local LLM, ML document analysis, React, Python, MongoDB, and Azure.",
+    "tags": ["React", "Python", "MongoDB", "Azure"],
+    "link": "https://github.com/abdsayeed/Home-Rights",
+    "github": "https://github.com/abdsayeed/Home-Rights"
+  },
+  {
+    "title": "Proj_Rentease",
+    "slug": "rentease",
+    "description": "Flask RESTful API for property rental management with JWT authentication, role-based access control, and a TypeScript + MongoDB backend.",
+    "tags": ["Flask", "TypeScript", "MongoDB"],
+    "link": "https://github.com/abdsayeed",
+    "github": "https://github.com/abdsayeed"
+  },
+  {
+    "title": "PeerView",
+    "slug": "peerview",
+    "description": "Modern Q&A platform for students and teachers powered by Azure Cloud. Real-time interactions, cloud-deployed and production-ready.",
+    "tags": ["Python", "Azure", "Cloud"],
+    "link": "https://github.com/abdsayeed",
+    "github": "https://github.com/abdsayeed"
+  },
+  {
+    "title": "Aries Ventures Web",
+    "slug": "aries-ventures",
+    "description": "Aries Ventures platform migration to a modular Angular 17 architecture with complex multi-step onboarding flows and a custom design system.",
+    "tags": ["Angular 17", "TypeScript", "Frontend Architecture"],
+    "link": "https://github.com/abdsayeed/AV_web",
+    "github": "https://github.com/abdsayeed/AV_web"
+  },
+  {
+    "title": "Iris Flower Classification",
+    "slug": "iris-classification",
+    "description": "Machine learning classification model exploring the Iris dataset using Python data science libraries — scikit-learn, Pandas, and Matplotlib.",
+    "tags": ["Machine Learning", "Python", "Data Science"],
+    "link": "https://github.com/abdsayeed",
+    "github": "https://github.com/abdsayeed"
+  }
+]

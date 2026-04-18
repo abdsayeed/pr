@@ -1,0 +1,22 @@
+[
+  {
+    "question": "What services do you offer?",
+    "answer": "I specialise in end-to-end full-stack development — designing responsive frontends, architecting robust backend APIs, integrating databases, and deploying cloud-hosted systems on Azure. I also work on machine learning integrations and AI-powered features."
+  },
+  {
+    "question": "What is your development process?",
+    "answer": "I follow a constraint-driven approach: map requirements, establish the database schema and API contracts, mock the UI, then build iteratively with frequent deployment cycles. Clean architecture and security by design are non-negotiable at every stage."
+  },
+  {
+    "question": "How do you handle project timelines?",
+    "answer": "I break projects into trackable milestones. A typical MVP takes 3–6 weeks depending on backend complexity. I communicate progress regularly and flag blockers early so there are no surprises."
+  },
+  {
+    "question": "Can you work with existing teams?",
+    "answer": "Absolutely. I'm comfortable jumping into existing codebases, reviewing PRs, and collaborating with designers, product managers, and other engineers. I adapt to your workflow and tooling."
+  },
+  {
+    "question": "What tools do you use?",
+    "answer": "My core stack is TypeScript, Python, React, Flask, Node.js, and MongoDB, with hands-on experience in Azure, Docker, and Angular. For frontend polish I use Tailwind CSS and Framer Motion."
+  }
+]
