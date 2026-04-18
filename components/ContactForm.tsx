@@ -4,10 +4,10 @@ import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Send } from "lucide-react";
 
-// Replace these with your actual EmailJS credentials
-const EMAILJS_SERVICE_ID  = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID  ?? "";
-const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "";
-const EMAILJS_PUBLIC_KEY  = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY  ?? "";
+const EMAILJS_SERVICE_ID        = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID        ?? "";
+const EMAILJS_TEMPLATE_ID       = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID       ?? "";
+const EMAILJS_AUTOREPLY_ID      = process.env.NEXT_PUBLIC_EMAILJS_AUTOREPLY_TEMPLATE_ID ?? "";
+const EMAILJS_PUBLIC_KEY        = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY        ?? "";
 
 export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -20,12 +20,22 @@ export default function ContactForm() {
     setStatus("loading");
 
     try {
+      // Send notification to you
       await emailjs.sendForm(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         formRef.current,
         EMAILJS_PUBLIC_KEY
       );
+      // Send auto-reply to sender (if template configured)
+      if (EMAILJS_AUTOREPLY_ID) {
+        await emailjs.sendForm(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_AUTOREPLY_ID,
+          formRef.current,
+          EMAILJS_PUBLIC_KEY
+        );
+      }
       setStatus("success");
       formRef.current.reset();
     } catch (err: any) {
